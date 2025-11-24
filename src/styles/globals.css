@@ -1,0 +1,250 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    &,
+    &.light {
+      --background-app-rgb: 249, 250, 251;
+      --color-primary-900: 74, 109, 255;
+      --color-primary-800: 92, 124, 255;
+      --color-primary-700: 110, 138, 255;
+      --color-primary-600: 128, 153, 255;
+      --color-primary-500: 146, 167, 255;
+      --color-primary-400: 164, 182, 255;
+      --color-primary-300: 183, 197, 255;
+      --color-primary-200: 201, 211, 255;
+      --color-primary-100: 219, 226, 255;
+      --color-primary-50: 228, 233, 255;
+      --color-secondary-900: 17, 24, 39;
+      --color-secondary-800: 31, 41, 55;
+      --color-secondary-700: 55, 65, 81;
+      --color-secondary-600: 75, 85, 99;
+      --color-secondary-500: 107, 114, 128;
+      --color-secondary-400: 156, 163, 175;
+      --color-secondary-300: 209, 213, 219;
+      --color-secondary-200: 229, 231, 235;
+      --color-secondary-100: 243, 244, 246;
+      --color-secondary-50: 249, 250, 251;
+      --color-secondary-0: 255, 255, 255;
+      --color-success: 0, 192, 115;
+      --color-warning: 255, 153, 0;
+      --color-error: 255, 71, 87;
+      --color-red-500: 239, 68, 68;
+      --color-red-300: 252, 165, 165;
+    }
+    &.dark {
+      --background-app-rgb: 20, 20, 20;
+      --color-secondary-900: 249, 250, 251;
+      --color-secondary-800: 243, 244, 246;
+      --color-secondary-700: 229, 231, 235;
+      --color-secondary-600: 209, 213, 219;
+      --color-secondary-500: 156, 163, 175;
+      --color-secondary-400: 107, 114, 128;
+      --color-secondary-300: 75, 85, 99;
+      --color-secondary-200: 55, 65, 81;
+      --color-secondary-100: 31, 41, 55;
+      --color-secondary-50: 17, 24, 39;
+      --color-secondary-0: 24, 33, 47;
+      --backdrop-color: 0, 0, 0;
+    }
+  }
+}
+
+@layer components {
+  /* Form Components */
+  .form {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-6 bg-secondary-0 p-4 rounded-xl w-full;
+  }
+  
+  .textField__input {
+    @apply w-full py-3 px-4 rounded-xl text-secondary-900 border border-secondary-100 bg-secondary-100 hover:border-primary-500 focus:border-primary-500 focus:bg-secondary-0 transition-all duration-300 ease-out focus:shadow-lg focus:shadow-primary-200 dark:focus:shadow-secondary-200;
+  }
+
+  /* Button Variants */
+  .btn {
+    @apply px-4 py-3 rounded-xl transition-all duration-300 font-medium;
+  }
+  
+  .btn--primary {
+    @apply bg-primary-900 hover:bg-primary-700 text-white;
+  }
+  
+  .btn--secondary {
+    @apply bg-secondary-600 text-secondary-100 hover:bg-secondary-500;
+  }
+  
+  .btn--outline {
+    @apply border-2 border-secondary-300 text-secondary-700 hover:bg-secondary-100;
+  }
+  
+  .btn--danger {
+    @apply border-2 border-rose-700 text-rose-700 hover:bg-rose-50;
+  }
+
+  /* Badge Components */
+  .badge {
+    @apply inline-block whitespace-nowrap rounded-xl px-3 py-1 text-sm font-medium;
+  }
+  
+  .badge--primary {
+    @apply bg-primary-900 text-white;
+  }
+  
+  .badge--secondary {
+    @apply bg-secondary-200 text-secondary-600;
+  }
+  
+  .badge--success {
+    @apply bg-green-500 text-white;
+  }
+  
+  .badge--danger {
+    @apply bg-red-500 text-white;
+  }
+
+  /* Loading Spinners */
+  .spinner {
+    margin: 3.2rem auto 1.6rem;
+    width: 60px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 8px solid rgb(var(--color-primary-900));
+    border-right-color: rgb(var(--color-primary-200));
+    animation: rotate 1s infinite linear;
+  }
+
+  .spinner-mini {
+    margin: 0;
+    width: 20px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 2px solid rgb(var(--color-primary-200));
+    border-right-color: transparent;
+    animation: rotate 1s infinite linear;
+  }
+
+  @keyframes rotate {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+
+  /* Card Component */
+  .card {
+    @apply bg-secondary-0 rounded-xl p-6 shadow-md;
+  }
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
+  background-color: rgb(var(--background-app-rgb));
+  color: rgb(var(--color-secondary-800));
+  scrollbar-width: thin;
+  scrollbar-color: rgba(var(--color-secondary-300), 0.5) transparent;
+}
+
+/* Custom Scrollbar for Webkit browsers */
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(var(--color-secondary-300), 0.5);
+  border-radius: 6px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(var(--color-secondary-300), 0.8);
+}
+
+/* Button Styles */
+button {
+  cursor: pointer;
+  outline: none;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  background-color: rgb(var(--color-secondary-300));
+  color: rgb(var(--color-secondary-500));
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Input Number - Hide Spinners */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Table Styles */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+table .title-row {
+  background-color: rgb(var(--color-secondary-100));
+}
+
+table td,
+table th {
+  border-bottom: 1px solid rgb(var(--color-secondary-200));
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+table th {
+  padding: 0.8rem 1rem;
+  color: rgb(var(--color-secondary-600));
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+table td {
+  font-size: 0.85rem;
+  padding: 1rem;
+  color: rgb(var(--color-secondary-600));
+}
+
+/* Link Styles */
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Shadow Utilities */
+.shadow-card {
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.shadow-card-md {
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.15);
+}

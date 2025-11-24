@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import "../styles/globals.css";
 import ThemeProvider from "@/context/ThemeProvider";
+import { Toaster } from "react-hot-toast";
 
 export const metadata = {
   title: {
@@ -16,6 +17,7 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <body className="min-h-screen">
         <ThemeProvider>
+          <Toaster />
           <Header />
           {children}
         </ThemeProvider>

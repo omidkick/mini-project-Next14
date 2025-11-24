@@ -5,8 +5,8 @@ import { Toaster } from "react-hot-toast";
 
 export const metadata = {
   title: {
-    template: "%s | Dashboard App",
-    default: "Dashboard App - Mini Project",
+    template: " Mini Project |%s",
+    default: "Home",
   },
   description:
     "Next.js 14 mini project with form validation, dashboard, and dark mode",
